@@ -22,12 +22,33 @@ var upper = letters.toUpperCase();
 var lower = letters.toLowerCase();
 
 //ask user for password length
-var amount = prompt('How many characters is your new password?');
+var amount = window.prompt('How many characters is your new password?');
 
 if(amount >= 8 && amount <= 128){
-    
+    //ask user which variables they will use
+   var okChar = window.confirm("Will this password have special characters?");
+   var okLower = window.confirm('Will this password have lowercase letters?');
+   var okUpper = window.confirm('Will this password have uppercase letters?');
+   var okNum = window.confirm('Will this password have numbers?');
+   //if all of them
+    if(okChar && okLower && okUpper && okNum){
+        
+    }//if no num
+    else if(okChar && okLower && okUpper && !okNum){
+
+    }//if no num and upper
+    else if(okChar && okLower && !okUpper && !okNum){
+
+    }//no num, upper, or lower
+    else if(okChar && !okLower && !okUpper && !okNum){
+
+    }
 }else if(amount < 8){
     println("Error your password is too short")
 }else{
     println("Error your password is too long")
 }
+
+//create a function that generates the password using all possibilities
+//and call it in the else statements
+//create it before the if statements
