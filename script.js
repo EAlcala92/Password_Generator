@@ -30,24 +30,57 @@ if(amount >= 8 && amount <= 128){
    var okLower = window.confirm('Will this password have lowercase letters?');
    var okUpper = window.confirm('Will this password have uppercase letters?');
    var okNum = window.confirm('Will this password have numbers?');
-   //if all of them
+
+   //Statements that go through every variation
     if(okChar && okLower && okUpper && okNum){
         
-    }//if no num
+    }
     else if(okChar && okLower && okUpper && !okNum){
 
-    }//if no num and upper
+    }
     else if(okChar && okLower && !okUpper && !okNum){
 
-    }//no num, upper, or lower
+    }
     else if(okChar && !okLower && !okUpper && !okNum){
 
     }
+    else if(!okChar && okLower && okUpper && okNum){
+
+    }
+    else if(!okChar && !okLower && okUpper && okNum){
+
+    }
+    else if(!okChar && !okLower && !okUpper && okNum){
+
+    }
+    else if(okChar && okLower && !okUpper && okNum){
+
+    }
+    else if(okChar && !okLower && !okUpper && okNum){
+
+    }
+    else if(!okChar && !okLower && okUpper && !okNum){
+
+    }
+    else if(!okChar && okLower && okUpper && !okNum){
+
+    }
+    else if(!okChar && okLower && !okUpper && !okNum){
+
+    }
+    else if(!okChar && okLower && !okUpper && okNum){
+
+    }
+    else if(okChar && !okLower && okUpper && okNum){
+
+    }
+
 }else if(amount < 8){
     println("Error your password is too short")
 }else{
     println("Error your password is too long")
 }
+
 
 //create a function that generates the password using all possibilities
 //and call it in the else statements
