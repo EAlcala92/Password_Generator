@@ -99,11 +99,15 @@ if(amount >= 8 && amount <= 128){
 function NewPassword(pass){
     var i = 0;
     var Length = pass.length;
+    var password;
     while(i <= amount){
-        var ran = Math.random() * Length; //selects variable type
-        var ranUnit = pass[ran]; //assigns the type
-        var unit = Math.floor(Math.random() * ranUnit.length); //choose random unit from type array
+        var rand = Math.random() * Length; //selects variable type
+        var randUnit = pass[rand]; //assigns the type
+        var unit = Math.floor(Math.random() * randUnit.length); //choose random unit from type array
+        password = pass.push(unit);//adds the random unit to the password
+        i++;
     }
+    pass = password;
     return pass;
 };
 
