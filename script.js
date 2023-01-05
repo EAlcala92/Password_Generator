@@ -1,25 +1,22 @@
 //User variables
-var numeric;
-var special_characters;
-var letters;
+var num;
+var char;
+var lower;
 var upper;
 
 //array of characters
-special_characters = ['!','@','#','$','%','^','&','*','(',')','-','_',
+char = ['!','@','#','$','%','^','&','*','(',')','-','_',
 '+','=','`','~','[','{',']','}','|',';',':',',','<','.','>','/','?'];
 
 //array of numbers
-numeric = ['0','1','2','3','4','5','6','7','8','9'];
+num = ['0','1','2','3','4','5','6','7','8','9'];
 
 //letters of the alphabet
-letters = ['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h',
+lower = ['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h',
 'j','k','l','z','x','c','v','b','n','m'];
 
 //converts letters to Uppercase
-var upper = letters.toUpperCase();
-
-//converts letters to Lowercase
-var lower = letters.toLowerCase();
+upper = lower.toUpperCase();
 
 //ask user for password length
 var amount = window.prompt('How many characters is your new password?');
@@ -31,48 +28,65 @@ if(amount >= 8 && amount <= 128){
    var okUpper = window.confirm('Will this password have uppercase letters?');
    var okNum = window.confirm('Will this password have numbers?');
 
+   // to store all the confirmed variables
+   var pass;
+
    //Statements that go through every variation
     if(okChar && okLower && okUpper && okNum){
-        
+        pass = [char, upper, lower, num];
+        NewPassword(pass);
     }
     else if(okChar && okLower && okUpper && !okNum){
-
+        pass = [char, lower, upper];
+        NewPassword(pass);
     }
     else if(okChar && okLower && !okUpper && !okNum){
-
+        pass = [char, lower];
+        NewPassword(pass);
     }
     else if(okChar && !okLower && !okUpper && !okNum){
-
+        pass = [char];
+        NewPassword(pass);
     }
     else if(!okChar && okLower && okUpper && okNum){
-
+        pass = [lower, upper, num];
+        NewPassword(pass);
     }
     else if(!okChar && !okLower && okUpper && okNum){
-
+        pass = [upper, num];
+        NewPassword(pass);
     }
     else if(!okChar && !okLower && !okUpper && okNum){
-
+        pass = [num];
+        NewPassword(pass);
     }
     else if(okChar && okLower && !okUpper && okNum){
-
+        pass = [char, lower, num];
+        NewPassword(pass);
     }
     else if(okChar && !okLower && !okUpper && okNum){
-
+        pass = [char, num];
+        NewPassword(pass);
     }
     else if(!okChar && !okLower && okUpper && !okNum){
-
+        pass = [upper];
+        NewPassword(pass);
     }
     else if(!okChar && okLower && okUpper && !okNum){
-
+        pass = [lower, upper];
+        NewPassword(pass);
     }
     else if(!okChar && okLower && !okUpper && !okNum){
-
+        pass = [lower];
+        NewPassword(pass);
     }
     else if(!okChar && okLower && !okUpper && okNum){
-
+        pass = [lower, num];
+        NewPassword(pass);
     }
     else if(okChar && !okLower && okUpper && okNum){
-
+        pass = [char, upper, num];
+        NewPassword(pass);
     }
 
 }else if(amount < 8){
@@ -81,6 +95,17 @@ if(amount >= 8 && amount <= 128){
     println("Error your password is too long")
 }
 
+//creates password with given variables
+function NewPassword(pass){
+    var i = 0;
+    var Length = pass.length;
+    while(i <= amount){
+        var ran = Math.random() * Length; //selects variable type
+        var ranUnit = pass[ran]; //assigns the type
+        var unit = Math.floor(Math.random() * ranUnit.length); //choose random unit from type array
+    }
+    return pass;
+};
 
 //create a function that generates the password using all possibilities
 //and call it in the else statements
