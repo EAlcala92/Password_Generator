@@ -1,4 +1,18 @@
 
+body{
+    background-color: whitesmoke;
+    margin: 0 auto;
+    font-family: 'Arial';
+    color: black;
+}
+
+h1{
+ text-align: center;
+ margin-top: 5%;
+ margin-right: 10%;
+ background-color: white;   
+}
+
 #header{
     background-color: white;
     margin-left: 15%;
