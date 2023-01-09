@@ -1,13 +1,8 @@
-*{
-    box-sizing: border-box;
-margin: 0;
-padding: 0;
-}
 
-h1{
-    text-align: center;
-}
-
-body{
-    border: 1px gray;
+#header{
+    background-color: white;
+    margin-left: 15%;
+    padding-top: 30px;
+    margin-top: 30px;
+    width: 900px;
 }
