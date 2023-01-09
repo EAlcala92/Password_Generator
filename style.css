@@ -6,6 +6,14 @@ body{
     color: black;
 }
 
+#header{
+    background-color: white;
+    margin-left: 15%;
+    padding-top: 30px;
+    margin-top: 30px;
+    width: 900px;
+}
+
 h1{
  text-align: center;
  margin-top: 5%;
@@ -13,10 +21,21 @@ h1{
  background-color: white;   
 }
 
-#header{
-    background-color: white;
-    margin-left: 15%;
-    padding-top: 30px;
-    margin-top: 30px;
-    width: 900px;
+h2{
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 40px;
+    font-weight: bold;
+}
+
+textarea{
+    padding: 10%;
+    border: dashed 1px gray;
+    margin-left: 10%;
+    padding-left: 14%;
+    padding-right: 14%;
+    width: 50%;
+    text-align: center;
+    color: black;
+    font-size: 18px;
 }
