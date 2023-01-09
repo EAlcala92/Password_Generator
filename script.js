@@ -18,6 +18,15 @@ lower = ['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h',
 //converts letters to Uppercase
 upper = lower.toUpperCase();
 
+//Activates Password Generator when button is pressed
+var gen= document.querySelector('#Generate');
+
+gen.addEventListener('click', function(){
+    pw = generatePassword();
+    document.getElementById("password").placeholder = pw;
+})
+
+function generatePassword(){
 //ask user for password length
 var amount = window.prompt('How many characters is your new password?');
 
@@ -111,6 +120,4 @@ function NewPassword(pass){
     return pass;
 };
 
-//create a function that generates the password using all possibilities
-//and call it in the else statements
-//create it before the if statements
+}
