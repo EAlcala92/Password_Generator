@@ -1,3 +1,11 @@
+//Activates Password Generator when button is pressed
+var gen= document.querySelector('#Generate');
+
+gen.addEventListener('click', function(){
+    pw = generatePassword();
+    document.getElementById("password").placeholder = pw;
+})
+
 //User variables
 var num;
 var char;
@@ -18,13 +26,6 @@ lower = ['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h',
 //converts letters to Uppercase
 upper = lower.toUpperCase();
 
-//Activates Password Generator when button is pressed
-var gen= document.querySelector('#Generate');
-
-gen.addEventListener('click', function(){
-    pw = generatePassword();
-    document.getElementById("password").placeholder = pw;
-})
 
 function generatePassword(){
 //ask user for password length
