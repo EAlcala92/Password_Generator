@@ -10,7 +10,7 @@ gen.addEventListener('click', function(){
 var num;
 var char;
 var lower;
-var upper;
+var upper = [];
 
 //array of characters
 char = ['!','@','#','$','%','^','&','*','(',')','-','_',
@@ -20,11 +20,17 @@ char = ['!','@','#','$','%','^','&','*','(',')','-','_',
 num = ['0','1','2','3','4','5','6','7','8','9'];
 
 //letters of the alphabet
+
 lower = ['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h',
 'j','k','l','z','x','c','v','b','n','m'];
 
 //converts letters to Uppercase
-upper = lower.toUpperCase();
+
+for(let i = 0; i < lower.length; i++){
+    const upperLetter = lower[i].toUpperCase();
+    upper.push(upperLetter)
+}
+
 
 
 function generatePassword(){
@@ -39,86 +45,101 @@ if(amount >= 8 && amount <= 128){
    var okNum = window.confirm('Will this password have numbers?');
 
    // to store all the confirmed variables
-   var pass;
+   var pass = [];
 
    //Statements that go through every variation
     if(okChar && okLower && okUpper && okNum){
-        pass = [char, upper, lower, num];
-        NewPassword(pass);
-    }
+        pass = [...char, ...upper, ...lower, ...num];
+        console.log(pass);
+        var finalPassword = NewPassword(pass);
+        console.log(finalPassword)    }
     else if(okChar && okLower && okUpper && !okNum){
-        pass = [char, lower, upper];
-        NewPassword(pass);
-    }
+        pass = [...char, ...lower, ...upper];
+        console.log(pass);
+        var finalPassword = NewPassword(pass);
+        console.log(finalPassword)    }
     else if(okChar && okLower && !okUpper && !okNum){
-        pass = [char, lower];
-        NewPassword(pass);
-    }
+        pass = [...char, ...lower];
+        console.log(pass);
+        var finalPassword = NewPassword(pass);
+        console.log(finalPassword)    }
     else if(okChar && !okLower && !okUpper && !okNum){
-        pass = [char];
-        NewPassword(pass);
-    }
+        pass = [...char];
+        console.log(pass);
+        var finalPassword = NewPassword(pass);
+        console.log(finalPassword)    }
     else if(!okChar && okLower && okUpper && okNum){
-        pass = [lower, upper, num];
-        NewPassword(pass);
-    }
+        pass = [...lower, ...upper, ...num];
+        console.log(pass);
+        var finalPassword = NewPassword(pass);
+        console.log(finalPassword)    }
     else if(!okChar && !okLower && okUpper && okNum){
-        pass = [upper, num];
-        NewPassword(pass);
-    }
+        pass = [...upper, ...num];
+        console.log(pass);
+        var finalPassword = NewPassword(pass);
+        console.log(finalPassword)    }
     else if(!okChar && !okLower && !okUpper && okNum){
-        pass = [num];
-        NewPassword(pass);
-    }
+        pass = [...num];
+        console.log(pass);
+        var finalPassword = NewPassword(pass);
+        console.log(finalPassword)    }
     else if(okChar && okLower && !okUpper && okNum){
-        pass = [char, lower, num];
-        NewPassword(pass);
-    }
+        pass = [...char, ...lower, ...num];
+        console.log(pass);
+        var finalPassword = NewPassword(pass);
+        console.log(finalPassword)    }
     else if(okChar && !okLower && !okUpper && okNum){
-        pass = [char, num];
-        NewPassword(pass);
-    }
+        pass = [...char, ...num];
+        var finalPassword = NewPassword(pass);
+        console.log(finalPassword)    }
     else if(!okChar && !okLower && okUpper && !okNum){
-        pass = [upper];
+        pass = [...upper];
+        console.log(pass);
         NewPassword(pass);
     }
     else if(!okChar && okLower && okUpper && !okNum){
-        pass = [lower, upper];
-        NewPassword(pass);
-    }
+        pass = [...lower, ...upper];
+        console.log(pass);
+        var finalPassword = NewPassword(pass);
+        console.log(finalPassword)    }
     else if(!okChar && okLower && !okUpper && !okNum){
-        pass = [lower];
-        NewPassword(pass);
-    }
+        pass = [...lower];
+        console.log(pass);
+        var finalPassword = NewPassword(pass);
+        console.log(finalPassword)    }
     else if(!okChar && okLower && !okUpper && okNum){
-        pass = [lower, num];
-        NewPassword(pass);
+        pass = [...lower, ...num];
+        console.log(pass);
+        var finalPassword = NewPassword(pass);
+        console.log(finalPassword)
     }
     else if(okChar && !okLower && okUpper && okNum){
-        pass = [char, upper, num];
-        NewPassword(pass);
+        pass = [...char, ...upper, ...num];
+        console.log(pass);
+        var finalPassword = NewPassword(pass);
+        console.log(finalPassword)
     }
 
 }else if(amount < 8){
-    println("Error your password is too short")
+    console.log("Error your password is too short")
 }else{
-    println("Error your password is too long")
+    console.log("Error your password is too long")
 }
 
 //creates password with given variables
 function NewPassword(pass){
+    var finalPassword = [];
     var i = 0;
-    var Length = pass.length;
-    var password;
     while(i <= amount){
-        var rand = Math.random() * Length; //selects variable type
-        var randUnit = pass[rand]; //assigns the type
-        var unit = Math.floor(Math.random() * randUnit.length); //choose random unit from type array
-        password = pass.push(unit);//adds the random unit to the password
+        var rand = Math.random() * pass.length; //selects variable type
+   
+        var unit = Math.floor(rand); //choose random unit from type array
+        var randUnit = pass[unit]; //assigns the type
+        finalPassword.push(randUnit);//adds the random unit to the password
         i++;
     }
-    pass = password;
-    return pass;
+    
+    return finalPassword.join('');
 };
 
 }
