@@ -1,9 +1,11 @@
+
 //Activates Password Generator when button is pressed
 var gen= document.querySelector('#Generate');
 
 gen.addEventListener('click', function(){
     pw = generatePassword();
     document.getElementById("password").placeholder = pw;
+    pw.innerText(pw);
 })
 
 //User variables
@@ -121,9 +123,11 @@ if(amount >= 8 && amount <= 128){
     }
 
 }else if(amount < 8){
-    console.log("Error your password is too short")
+    console.log("Error your password is too short");
+    alert("Error your password is too short");
 }else{
-    console.log("Error your password is too long")
+    console.log("Error your password is too long");
+    alert("Error your password is too long");
 }
 
 //creates password with given variables
