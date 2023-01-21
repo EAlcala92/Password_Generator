@@ -40,6 +40,11 @@ textarea{
     font-size: 18px;
 }
 
+#password{
+    color:black;
+    font-family: 'Times New Roman', Times, serif;
+}
+
 #bottun{
     margin-top: 20px;
 }

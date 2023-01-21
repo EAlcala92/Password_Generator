@@ -1,11 +1,10 @@
-
+var displayPassword = document.getElementById('password');
 //Activates Password Generator when button is pressed
 var gen= document.querySelector('#Generate');
 
 gen.addEventListener('click', function(){
     pw = generatePassword();
     document.getElementById("password").placeholder = pw;
-    pw.innerText(pw);
 })
 
 //User variables
@@ -48,6 +47,7 @@ if(amount >= 8 && amount <= 128){
 
    // to store all the confirmed variables
    var pass = [];
+   displayPassword.innerHTML = pass;
 
    //Statements that go through every variation
     if(okChar && okLower && okUpper && okNum){
@@ -142,7 +142,7 @@ function NewPassword(pass){
         finalPassword.push(randUnit);//adds the random unit to the password
         i++;
     }
-    
+    displayPassword.innerHTML = finalPassword.join('');
     return finalPassword.join('');
 };
 
